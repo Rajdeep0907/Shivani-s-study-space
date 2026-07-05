@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shivani's Study Space</title>
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#0D0B1A">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Study Space">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -39,7 +48,7 @@ input,select,textarea{font-family:inherit; color:inherit;}
 ::-webkit-scrollbar-thumb{background:rgba(185,168,232,0.25); border-radius:8px;}
 
 #petals{position:fixed; inset:0; pointer-events:none; z-index:1; overflow:hidden;}
-.petal{position:absolute; top:-5%; font-size:14px; opacity:.55; animation:fall linear infinite; text-shadow:0 0 4px rgba(243,182,198,.35);}
+.petal{position:absolute; top:-5%; font-size:14px; opacity:.55; animation:fall linear infinite; filter:drop-shadow(0 0 4px rgba(243,182,198,.4));}
 @keyframes fall{
   0%{transform:translateY(-10vh) translateX(0) rotate(0deg);}
   100%{transform:translateY(110vh) translateX(var(--drift,40px)) rotate(360deg);}
@@ -59,7 +68,7 @@ input,select,textarea{font-family:inherit; color:inherit;}
 #app{display:none; min-height:100vh; position:relative; z-index:2;}
 .shell{display:flex; min-height:100vh;}
 
-.sidebar{width:280px; flex-shrink:0; background:rgba(255,255,255,.055); backdrop-filter:blur(20px) saturate(150%); -webkit-backdrop-filter:blur(20px) saturate(150%);
+.sidebar{width:280px; flex-shrink:0; background:rgba(255,255,255,.055); backdrop-filter:blur(28px) saturate(160%); -webkit-backdrop-filter:blur(28px) saturate(160%);
   border:1px solid rgba(255,255,255,.09); border-left:none; border-top:none; border-bottom:none;
   display:flex; flex-direction:column; padding:24px 16px 18px; position:sticky; top:0; height:100vh; transition:width .3s var(--ease-smooth), padding .3s ease; box-shadow:8px 0 40px rgba(0,0,0,.28), inset -1px 0 0 rgba(255,255,255,.04);}
 .sidebar.collapsed{width:100px; padding:24px 12px 18px;}
@@ -120,7 +129,7 @@ input,select,textarea{font-family:inherit; color:inherit;}
 .page-head h1{font-family:var(--display); font-size:30px; font-weight:600; margin-bottom:4px;}
 .page-head p{color:var(--text-mid); font-size:14.5px;}
 
-.card{background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius); backdrop-filter:blur(11px); position:relative; overflow:hidden;}
+.card{background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius); backdrop-filter:blur(16px); position:relative; overflow:hidden;}
 .card::before{content:''; position:absolute; inset:0; border-radius:var(--radius); padding:1px; background:linear-gradient(135deg, rgba(185,168,232,.25), rgba(243,182,198,.08) 40%, transparent 70%); -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none;}
 
 .hero{padding:36px 34px; margin-bottom:24px; position:relative;}
@@ -405,7 +414,7 @@ input,select,textarea{font-family:inherit; color:inherit;}
 
 #onboard{position:fixed; inset:0; z-index:90; display:none; align-items:center; justify-content:center; background:radial-gradient(ellipse at 50% 20%, #1c1733, #0D0B1A 75%); padding:20px;}
 #onboard.show{display:flex;}
-.ob-card{width:100%; max-width:480px; background:var(--glass); border:1px solid var(--glass-border); border-radius:24px; padding:38px 34px; backdrop-filter:blur(14px);}
+.ob-card{width:100%; max-width:480px; background:var(--glass); border:1px solid var(--glass-border); border-radius:24px; padding:38px 34px; backdrop-filter:blur(20px);}
 .ob-step{display:none;}
 .ob-step.active{display:block; animation:obIn .4s ease;}
 @keyframes obIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
@@ -612,7 +621,7 @@ input,select,textarea{font-family:inherit; color:inherit;}
 
 .rainbow-text{background:linear-gradient(90deg,#F3B6C6,#F4D27A,#9AD8C8,#B9A8E8,#F3B6C6); background-size:300% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:rainbowShift 3s linear infinite; border-color:transparent !important;}
 .rainbow-border{position:relative;}
-.rainbow-border::before{content:''; position:absolute; inset:-4px; border-radius:inherit; background:linear-gradient(120deg,#F3B6C6,#F4D27A,#9AD8C8,#B9A8E8,#F3B6C6); background-size:300% 300%; animation:rainbowShift 3s linear infinite; z-index:-1; opacity:.5;}
+.rainbow-border::before{content:''; position:absolute; inset:-4px; border-radius:inherit; background:linear-gradient(120deg,#F3B6C6,#F4D27A,#9AD8C8,#B9A8E8,#F3B6C6); background-size:300% 300%; animation:rainbowShift 3s linear infinite; z-index:-1; opacity:.5; filter:blur(10px);}
 @keyframes rainbowShift{0%{background-position:0% 50%;} 100%{background-position:300% 50%;}}
 
 .secret-gift-float{position:fixed; font-size:26px; z-index:60; cursor:pointer; animation:secretFloat 2.6s ease-in-out infinite; filter:drop-shadow(0 0 10px rgba(243,182,198,.6));}
@@ -670,7 +679,7 @@ html{scroll-behavior:smooth;}
 .toast{transition:opacity .5s var(--ease-smooth), transform .5s var(--ease-smooth);}
 
 .fab{box-shadow:0 10px 28px rgba(185,168,232,.4), 0 3px 10px rgba(0,0,0,.3); transition:transform .4s var(--ease-spring), box-shadow .35s ease; will-change:transform;}
-.navitem{will-change:transform;}
+.navitem, .navitem .ic, .card{will-change:transform;}
 .aurora-band, .aurora-firefly{will-change:transform, opacity;}
 .fab:hover{transform:scale(1.1) rotate(8deg) translateY(-3px); box-shadow:0 16px 40px rgba(185,168,232,.5);}
 
@@ -853,7 +862,7 @@ button:focus-visible, a:focus-visible, .navitem:focus-visible{
 </div>
 
 <button class="fab" id="fabBtn" title="Quick add task" aria-label="Quick add task"><span id="fabIcon">＋</span></button>
-<button id="musicFab" title="Toggle ambient music" aria-label="Toggle ambient music" style="position:fixed;bottom:24px;left:24px;width:34px;height:34px;border-radius:50%;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;font-size:13px;z-index:30;cursor:pointer;transition:background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease;color:var(--text-low);">🎵</button>
+<button id="musicFab" title="Toggle ambient music" aria-label="Toggle ambient music" style="position:fixed;bottom:24px;left:24px;width:34px;height:34px;border-radius:50%;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;font-size:13px;z-index:30;cursor:pointer;transition:background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease;color:var(--text-low);">🎵</button>
 
 <div class="overlay" id="taskOverlay">
   <div class="modal">
@@ -5347,7 +5356,7 @@ document.addEventListener('click', function(e){
 document.head.insertAdjacentHTML('beforeend', `<style>
 @keyframes tapPulseAnim{0%{transform:scale(1);} 45%{transform:scale(.94);} 100%{transform:scale(1);}}
 .tap-pulse{animation:tapPulseAnim .22s ease;}
-.card{transition:box-shadow .25s ease, border-color .25s ease;}
+.card{transition:transform .25s ease, box-shadow .25s ease;}
 .toast.show{animation:toastFloat .35s ease;}
 @keyframes toastFloat{0%{transform:translateX(-50%) translateY(-14px) scale(.96); opacity:0;} 100%{transform:translateX(-50%) translateY(0) scale(1); opacity:1;}}
 
@@ -5363,7 +5372,7 @@ document.head.insertAdjacentHTML('beforeend', `<style>
 .mem-month-group{margin-bottom:22px;}
 .mem-month-label{font-family:var(--handwrite); font-size:24px; color:var(--sakura); margin-bottom:10px; padding-left:4px;}
 .mem-timeline, .mem-scrapbook{display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:14px;}
-.mem-card{background:var(--glass); border:1px solid var(--glass-border); backdrop-filter:blur(11px); border-radius:16px; padding:16px; display:flex; gap:12px; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,.18); transition:transform .25s ease, box-shadow .25s ease;}
+.mem-card{background:var(--glass); border:1px solid var(--glass-border); backdrop-filter:blur(16px); border-radius:16px; padding:16px; display:flex; gap:12px; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,.18); transition:transform .25s ease, box-shadow .25s ease;}
 .mem-card:hover{transform:translateY(-4px) scale(1.01); box-shadow:0 10px 28px rgba(185,168,232,.25);}
 .mem-card-ic{font-size:30px; flex-shrink:0;}
 .mem-card-title{font-family:var(--display); font-weight:600; font-size:16px; color:var(--text-hi);}
@@ -5545,7 +5554,7 @@ document.head.insertAdjacentHTML('beforeend', `<style>
 #auroraLayer.burst .aurora-band{filter:blur(24px) brightness(1.35); opacity:.85;}
 #auroraLayer.legendary .aurora-band{background:linear-gradient(100deg, rgba(244,210,122,.7), rgba(255,190,120,.55), rgba(243,182,198,.5)) !important;}
 .aurora-glow{filter:drop-shadow(0 0 10px var(--sakura)) drop-shadow(0 0 18px var(--lavender));}
-.aurora-page-card{background:var(--glass); border:1px solid var(--glass-border); backdrop-filter:blur(11px); border-radius:18px; padding:24px; margin-bottom:16px;}
+.aurora-page-card{background:var(--glass); border:1px solid var(--glass-border); backdrop-filter:blur(16px); border-radius:18px; padding:24px; margin-bottom:16px;}
 .aurora-toggle-row{display:flex; align-items:center; justify-content:space-between; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.06);}
 .aurora-toggle-row:last-child{border-bottom:none;}
 .aurora-switch{width:46px; height:26px; border-radius:20px; background:rgba(255,255,255,.12); position:relative; transition:background .25s ease; flex-shrink:0;}
@@ -7543,6 +7552,14 @@ function init(){
   startNormalApp();
 }
 init();
+
+/* Register service worker for offline support + installability.
+   Wrapped defensively so it never breaks the app if hosting doesn't support it. */
+if('serviceWorker' in navigator){
+  window.addEventListener('load', ()=>{
+    navigator.serviceWorker.register('./sw.js').catch(()=>{ /* fine on file:// or unsupported hosts */ });
+  });
+}
 </script>
 </body>
 </html>
